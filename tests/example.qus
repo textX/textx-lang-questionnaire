@@ -1,0 +1,17 @@
+Q: Project type
+1. Language project
+2. Generator project
+
+Q: Package name
+___ /[a-z][a-z0-9_]*/
+
+Q: Author name
+___
+
+Q: Author email
+___
+
+Q: This question is to
+   test multiline feature and indenting.
+   1. Working
+   2. Not working

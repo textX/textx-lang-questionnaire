@@ -1,0 +1,25 @@
+/*
+    Questionnaire language.
+
+*/
+
+
+Questionnaire:
+    questions+=Question
+;
+
+Question:
+    'Q:' text+=QLine
+    type=Type
+;
+
+QLine:  !/Q:|\d+\.|___+/ /[^\n]+/;
+
+Type: Free | Choice;
+
+Free: /___+/ (regex=/\/((?:(?:\\\/)|[^\/])*)\//)?;
+
+Choice: options+=ChoiceOption;
+ChoiceOption: num=INT '.' text=Text;
+
+Text: /[^\n]+/;

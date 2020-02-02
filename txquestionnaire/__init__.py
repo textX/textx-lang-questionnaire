@@ -5,13 +5,14 @@ from textx import language, metamodel_from_file
 @language('questionnaire', '*.qus')
 def questionnaire():
     "A language for definition of simple questionnaires"
-    def question_processor(q):
+    def multiline_text_processor(o):
         """
-        Processor for Question objects.
+        Processor for objects having multiline `text` field.
         """
-        q.text = ' '.join(q.text)
-        return q
+        o.text = ' '.join(o.text)
+        return o
 
     mm = metamodel_from_file(join(dirname(__file__), 'questionnaire.tx'))
-    mm.register_obj_processors({'Question': question_processor})
+    mm.register_obj_processors({'Question': multiline_text_processor,
+                                'ChoiceOption': multiline_text_processor})
     return mm

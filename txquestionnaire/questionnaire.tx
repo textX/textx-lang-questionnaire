@@ -9,17 +9,15 @@ Questionnaire:
 ;
 
 Question:
-    'Q:' text+=QLine
+    'Q:' text+=TextLine
     type=Type
 ;
-
-QLine:  !/Q:|\d+\.|___+/ /[^\n]+/;
 
 Type: Free | Choice;
 
 Free: /___+/ (regex=/\/((?:(?:\\\/)|[^\/])*)\//)?;
 
 Choice: options+=ChoiceOption;
-ChoiceOption: num=INT '.' text=Text;
+ChoiceOption: num=INT '.' text+=TextLine;
 
-Text: /[^\n]+/;
+TextLine:  !/Q:|\d+\.|___+/ /[^\n]+/;

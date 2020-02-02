@@ -16,3 +16,7 @@ def test_example():
     assert len(opt) == 2
     assert opt[0].num == 1
     assert opt[0].text == 'Working'
+
+    # Multiline
+    assert opt[1].text == \
+        'Not working. This is also to test multiline in choices.'

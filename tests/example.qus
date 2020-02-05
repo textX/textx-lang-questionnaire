@@ -2,8 +2,8 @@ Q: Project type
 1. Language project
 2. Generator project
 
-Q: Package name
-___ /[a-z][a-z0-9_]*/
+Q[package]: Package name
+___ /[a-z][a-z0-9_]*$/
 
 Q: Author name
 ___

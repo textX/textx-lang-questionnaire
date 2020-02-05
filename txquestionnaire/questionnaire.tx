@@ -9,7 +9,7 @@ Questionnaire:
 ;
 
 Question:
-    'Q:' text+=TextLine
+    ('Q:'|'Q[' qid=ID ']:') text+=TextLine
     type=Type
 ;
 
@@ -20,4 +20,4 @@ Free: /___+/ (regex=/\/((?:(?:\\\/)|[^\/])*)\//)?;
 Choice: options+=ChoiceOption;
 ChoiceOption: num=INT '.' text+=TextLine;
 
-TextLine:  !/Q:|\d+\.|___+/ /[^\n]+/;
+TextLine:  !/Q:|Q\[|\d+\.|___+/ /[^\n]+/;

@@ -4,7 +4,8 @@ setup(name='textx-lang-questionnaire',
       version='0.1.0',
       packages=find_packages(),
       package_data={'': ['*.tx']},
-      install_requires=["textx"],
+      install_requires=['textx'],
+      tests_require=['pytest'],
       entry_points={
         'textx_languages': [
             'questionnaire = txquestionnaire:questionnaire',

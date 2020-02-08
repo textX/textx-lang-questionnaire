@@ -18,6 +18,6 @@ Type: Free | Choice;
 Free: /___+/ (regex=/\/((?:(?:\\\/)|[^\/])*)\//)?;
 
 Choice: options+=ChoiceOption;
-ChoiceOption: num=INT '.' text+=TextLine;
+ChoiceOption: num=INT ('[' id=ID ']')? '.' text+=TextLine;
 
-TextLine:  !/Q:|Q\[|\d+\.|___+/ /[^\n]+/;
+TextLine:  !/Q:|Q\[|\d+(\[[^\]]*\])?\.|___+/ /[^\n]+/;

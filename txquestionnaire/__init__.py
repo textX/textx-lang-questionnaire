@@ -58,16 +58,18 @@ def questionnaire_interpret(model, data=None):
                           f'Should match "{question.type.regex}"')
                     continue
             elif qtype == 'Choice':
+                options = {o.num: o.id or o.num for o in question.type.options}
                 try:
                     ans = int(ans)
                 except ValueError:
                     print('Invalid input. Should be a number.')
                     continue
-                if ans not in [o.num for o in question.type.options]:
+                if ans not in options:
                     print('Invalid input. Should be a number [{}-{}]'.format(
                         question.type.options[0].num,
                         question.type.options[-1].num))
                     continue
+                ans = options[ans]
             break
 
         data[qid] = ans

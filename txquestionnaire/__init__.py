@@ -45,6 +45,11 @@ def questionnaire_interpret(model, data=None):
                 print("{}. {}".format(option.num, option.text))
 
         default = data.get(qid, None)
+        if qtype == 'Choice':
+            options = {o.num: o.id or o.num for o in question.type.options}
+            default = dict(((v, k) for k, v in options.items())).get(default,
+                                                                     default)
+
         while True:
             ans = input('{}> '.format(
                 default if default is not None else '')) or default
@@ -58,7 +63,6 @@ def questionnaire_interpret(model, data=None):
                           f'Should match "{question.type.regex}"')
                     continue
             elif qtype == 'Choice':
-                options = {o.num: o.id or o.num for o in question.type.options}
                 try:
                     ans = int(ans)
                 except ValueError:

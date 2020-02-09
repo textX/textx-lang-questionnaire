@@ -42,7 +42,7 @@ def questionnaire_interpret(model, data=None):
         print(question.text)
         if qtype == 'Choice':
             for option in question.type.options:
-                print(option.num, '. ', option.text)
+                print("{}. {}".format(option.num, option.text))
 
         default = data.get(qid, None)
         while True:

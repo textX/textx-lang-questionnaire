@@ -4,7 +4,7 @@ from textx import metamodel_for_language
 
 def test_example():
     mm = metamodel_for_language('questionnaire')
-    questionnaire = mm.model_from_file(join(dirname(__file__), 'example.qus'))
+    questionnaire = mm.model_from_file(join(dirname(__file__), 'example.que'))
 
     assert len(questionnaire.questions) == 5
     assert questionnaire.questions[2].text == 'Author name'

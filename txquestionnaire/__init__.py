@@ -3,7 +3,7 @@ from os.path import join, dirname
 from textx import language, metamodel_from_file
 
 
-@language('questionnaire', '*.qus')
+@language('questionnaire', '*.que')
 def questionnaire():
     "A language for definition of simple questionnaires"
     def multiline_text_processor(o):

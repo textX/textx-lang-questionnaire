@@ -9,7 +9,7 @@ def test_interpret(monkeypatch):
     """
 
     mm = metamodel_for_language('questionnaire')
-    questionnaire = mm.model_from_file(join(dirname(__file__), 'example.qus'))
+    questionnaire = mm.model_from_file(join(dirname(__file__), 'example.que'))
 
     inputs = [
         '1', 'my_package', 'it is me', 'my@email.com', '2'

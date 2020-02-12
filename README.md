@@ -1,3 +1,3 @@
 # Questionnaire DSL
 
-DSL for describing questionnaires.
+A DSL for describing questionnaires.

@@ -61,8 +61,8 @@ def questionnaire_interpret(model, data=None):
 
             if qtype == 'Free' and question.type.regex:
                 if not re.match(question.type.regex, ans):
-                    print(f'Invalid input. '
-                          f'Should match "{question.type.regex}"')
+                    print('Invalid input. '
+                          'Should match "{}"'.format(question.type.regex))
                     continue
             elif qtype == 'Choice':
                 try:

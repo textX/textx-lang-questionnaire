@@ -20,8 +20,8 @@ please take a look at related PRs and issues and see if the change affects you.
 Initial version.
 
 
-[Unreleased]: https://github.com/textX/textx-lang-questionnaire/compare/v0.1.1...HEAD
-[0.1.1]: https://github.com/textX/textx-lang-questionnaire/tree/v0.1.1
+[Unreleased]: https://github.com/textX/textx-lang-questionnaire/compare/0.1.1...HEAD
+[0.1.1]: https://github.com/textX/textx-lang-questionnaire/tree/0.1.1
 
 [keepachangelog]: https://keepachangelog.com/
 [semver]: https://semver.org/spec/v2.0.0.html

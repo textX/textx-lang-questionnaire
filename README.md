@@ -40,4 +40,6 @@ or question number. The interpreter will run the questionnaire on the console
 and return a dictionary of collected data. The values for options are ordinal
 numbers or IDs if given (like in `Project type` above -- `lang`, `gen`).
 
-Please see tests for the detailed usage.
+Please see
+[tests](https://github.com/textX/textx-lang-questionnaire/tree/master/tests) for
+the detailed usage.

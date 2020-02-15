@@ -21,7 +21,7 @@ Initial version.
 
 
 [Unreleased]: https://github.com/textX/textx-lang-questionnaire/compare/0.1.1...HEAD
-[0.1.1]: https://github.com/textX/textx-lang-questionnaire/tree/0.1.1
+[0.1.1]: https://github.com/textX/textx-lang-questionnaire/commits/0.1.1
 
 [keepachangelog]: https://keepachangelog.com/
 [semver]: https://semver.org/spec/v2.0.0.html

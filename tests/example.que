@@ -1,6 +1,9 @@
-Q: Project type
+Q[type]: Project type
 1[lang]. Language project
 2[gen]. Generator project
+
+Q[type=lang, extension]: File extension (e.g. "*.que"):
+___ /\*\.[a-z0-9]+/
 
 Q[package]: Package name
 ___ /[a-z][a-z0-9_]*$/

@@ -9,9 +9,17 @@ Questionnaire:
 ;
 
 Question:
-    ('Q:'|'Q[' qid=ID ']:') text+=TextLine
+    'Q' ('[' terms=QuestionTerm+[','] ']')? ':' text+=TextLine
     type=Type
 ;
+
+QuestionTerm:
+    QuestionCondition | QuestionID 
+;
+
+QuestionID: qid=ID;
+QuestionCondition: lhs=ID '=' rhs=QuestionConditionRHS;
+QuestionConditionRHS: ID | INT;
 
 Type: Free | Choice;
 

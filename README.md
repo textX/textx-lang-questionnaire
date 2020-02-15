@@ -4,9 +4,12 @@ A DSL for describing questionnaires with a simple terminal interpreter.
 
 Example:
 ```
-Q: Project type
+Q[type]: Project type
 1[lang]. Language project
 2[gen]. Generator project
+
+Q[type=lang, extension]: File extension (e.g. "*.que"):
+___ /\*\.[a-z0-9]+/
 
 Q[package]: Package name
 ___ /[a-z][a-z0-9_]*$/
@@ -24,8 +27,16 @@ Q: This question is to
       This is also to test multiline in choices.
 ```
 
-Each question begins with `Q:` or `Q[<question ID>]`. The type of the question
-is either free-form (specified by `___`) or choice if enumerated options are given.
+Each question is of the form `Q:` or `Q[<comma separated terms>]`. If `[]` with
+terms is given, each term is either a question ID or a boolean expression of the
+form `<lhs>=<rhs>` where `<lhs>` is a reference to previous question ID while
+`<rhs>` is a value of the previous question which must be satisfied for this
+question to be used. This is handy if the questions that follows depends on the
+answer. See `File extension` question above which is asked only for language
+projects (thus `type=lang`, the `type` is a reference to the previous question).
+
+The type of the question is either free-form (specified by `___`) or choice if
+enumerated options are given.
 
 Both question and option can span multiple lines (like in the last question).
 

@@ -12,7 +12,7 @@ def test_interpret(monkeypatch):
     questionnaire = mm.model_from_file(join(dirname(__file__), 'example.que'))
 
     inputs = [
-        '1', 'my_package', 'it is me', 'my@email.com', '2'
+        '1', '*.test', 'my_package', 'it is me', 'my@email.com', '2'
     ]
 
     monkeypatch.setattr('builtins.input', lambda _: inputs.pop(0))
@@ -20,17 +20,27 @@ def test_interpret(monkeypatch):
     data = questionnaire_interpret(questionnaire)
 
     assert data['package'] == 'my_package'
-    assert data[0] == 'lang'
-    assert data[2] == 'it is me'
+    assert data['type'] == 'lang'
+    assert data[3] == 'it is me'
 
     # We can pass in default values by id
     inputs = [
-        '1', '', '', 'my@email.com', '2'
+        '1', '*.test', '', '', 'my@email.com', '2'
     ]
     data = questionnaire_interpret(questionnaire,
                                    {'package': 'some_other_package',
-                                    2: 'not me anymore'})
+                                    3: 'not me anymore'})
 
     assert data['package'] == 'some_other_package'
-    assert data[0] == 'lang'
-    assert data[2] == 'not me anymore'
+    assert data['type'] == 'lang'
+    assert data[3] == 'not me anymore'
+    assert 'extension' in data
+
+    # Test conditional, if project type is "gen" no extension will be asked for
+    inputs = [
+        '2', '', '', 'my@email.com', '2'
+    ]
+    data = questionnaire_interpret(questionnaire,
+                                   {'package': 'some_other_package',
+                                    3: 'not me anymore'})
+    assert 'extension' not in data

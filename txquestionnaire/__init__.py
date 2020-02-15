@@ -8,6 +8,19 @@ __version__ = "0.1.1"
 @language('questionnaire', '*.que')
 def questionnaire():
     "A language for definition of simple questionnaires"
+    def question(o):
+        """
+        Processor for Question objects.
+        """
+        multiline_text_processor(o)
+        o.qid = None
+        o.condition = []
+        for term in o.terms:
+            if hasattr(term, 'qid'):
+                o.qid = term.qid
+            else:
+                o.condition.append(term)
+
     def multiline_text_processor(o):
         """
         Processor for objects having multiline `text` field.
@@ -21,7 +34,7 @@ def questionnaire():
             o.regex = o.regex[1:-1]
 
     mm = metamodel_from_file(join(dirname(__file__), 'questionnaire.tx'))
-    mm.register_obj_processors({'Question': multiline_text_processor,
+    mm.register_obj_processors({'Question': question,
                                 'Free': free_type_question,
                                 'ChoiceOption': multiline_text_processor})
     return mm
@@ -38,6 +51,12 @@ def questionnaire_interpret(model, data=None):
     data = data or {}
 
     for qid, question in enumerate(model.questions):
+        # Check condition if exist
+        if question.condition:
+            if not all([data[term.lhs] == term.rhs
+                        for term in question.condition]):
+                continue
+
         qid = question.qid or qid
         qtype = question.type.__class__.__name__
 
@@ -53,7 +72,7 @@ def questionnaire_interpret(model, data=None):
                                                                      default)
 
         while True:
-            ans = input('{}> '.format(
+            ans = input('[{}]> '.format(
                 default if default is not None else '')) or default
 
             if ans == 'quit':

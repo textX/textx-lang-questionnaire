@@ -2,7 +2,7 @@ import re
 from os.path import join, dirname
 from textx import language, metamodel_from_file
 
-__version__ = "0.1.1"
+__version__ = "0.2.0"
 
 
 @language('questionnaire', '*.que')

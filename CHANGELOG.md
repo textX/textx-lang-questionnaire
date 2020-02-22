@@ -14,6 +14,9 @@ please take a look at related PRs and issues and see if the change affects you.
 
 ## [Unreleased]
 
+
+## [0.2.0]
+
 ### Added
 
 - Support for conditional questions.

@@ -1,5 +1,5 @@
 [![Build status](https://travis-ci.org/textX/textx-lang-questionnaire.svg?branch=master)](https://travis-ci.org/textX/textx-lang-questionnaire)
-[![Code test coverage](https://coveralls.io/repos/github/textX/textx-lang-questionnaire.svg?branch=master)](https://coveralls.io/github/textX/textx-lang-questionnaire?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/textX/textx-lang-questionnaire/badge.svg)](https://coveralls.io/github/textX/textx-lang-questionnaire)
 
 
 # Questionnaire DSL
